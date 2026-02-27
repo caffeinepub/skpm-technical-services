@@ -1,0 +1,299 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-27T02:15:19.179Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 11,
+    "implemented": 10,
+    "items": [
+      {
+        "id": "REQ-1",
+        "summary": "Create a main Dashboard page displaying key performance indicators and overview stats: total open jobs, completed jobs today, pending invoices, total revenue this month, technician utilization rate, and recent activity feed. Use card-based KPI widgets and a summary chart showing job status distribution.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/Dashboard.tsx",
+          "frontend/src/hooks/useDashboardStats.ts",
+          "frontend/src/hooks/useJobStatusSummary.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/Dashboard.tsx"
+        ]
+      },
+      {
+        "id": "REQ-10",
+        "summary": "Design a professional field-service management visual theme: a deep navy and steel-gray sidebar navigation with amber/orange accent colors for primary actions and status highlights. Use clean card-based layouts with subtle shadows, a compact data-table style for list views, and a left-sidebar navigation linking to all modules (Dashboard, Jobs, Customers, Invoices, Schedule, Inventory, Technicians, Reports). Apply this theme consistently across all pages.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js",
+          "frontend/src/components/Layout.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js",
+          "frontend/src/components/Layout.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-11",
+        "summary": "Generate and render a custom app logo for SKPM Technical Services displayed in the top of the sidebar navigation, using the generated image as a static asset from frontend/public/assets/generated.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Layout.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Layout.tsx"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Implement a Job / Work Order management module. Users can create new jobs with fields: job title, description, customer, assigned technician, priority (Low/Medium/High/Urgent), status (New/In Progress/On Hold/Completed/Cancelled), scheduled date, location/address, and notes. Support listing all jobs with filters by status, priority, technician, and date range. Allow editing and deleting jobs.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/Jobs.tsx",
+          "frontend/src/pages/JobDetail.tsx",
+          "frontend/src/components/JobForm.tsx",
+          "frontend/src/hooks/useJobs.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/Jobs.tsx",
+          "frontend/src/pages/JobDetail.tsx",
+          "frontend/src/components/JobForm.tsx"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Build a CRM (Customer/Client Management) module. Each customer record includes: name, company, email, phone, address, customer type (Residential/Commercial), notes, and job history. Support creating, editing, deleting, and searching customers. Show a customer detail page with linked jobs and invoices.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/Customers.tsx",
+          "frontend/src/pages/CustomerDetail.tsx",
+          "frontend/src/components/CustomerForm.tsx",
+          "frontend/src/hooks/useCustomers.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/Customers.tsx",
+          "frontend/src/pages/CustomerDetail.tsx",
+          "frontend/src/components/CustomerForm.tsx"
+        ]
+      },
+      {
+        "id": "REQ-4",
+        "summary": "Create an Invoicing and Billing module. Invoices link to a customer and optionally to a job. Invoice fields: invoice number (auto-generated), customer, linked job (optional), issue date, due date, line items (description, quantity, unit price), subtotal, tax rate, total, payment status (Unpaid/Partial/Paid/Overdue), and notes. Support creating, editing, marking as paid, and listing invoices with filters by status and customer.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/Invoices.tsx",
+          "frontend/src/pages/InvoiceDetail.tsx",
+          "frontend/src/components/InvoiceForm.tsx",
+          "frontend/src/hooks/useInvoices.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/Invoices.tsx",
+          "frontend/src/pages/InvoiceDetail.tsx",
+          "frontend/src/components/InvoiceForm.tsx"
+        ]
+      },
+      {
+        "id": "REQ-5",
+        "summary": "Implement a Scheduling and Calendar module. Display a calendar view (monthly and weekly) showing scheduled jobs and technician assignments. Allow dragging or selecting a date to schedule a job. Show technician availability and assigned jobs per day. Support viewing all scheduled jobs in a list view as well.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/Schedule.tsx",
+          "frontend/src/components/Calendar.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/Schedule.tsx"
+        ]
+      },
+      {
+        "id": "REQ-6",
+        "summary": "Build an Inventory / Parts & Stock Management module. Each inventory item has: item name, SKU/part number, category, quantity in stock, minimum stock threshold, unit cost, supplier, and notes. Support adding, editing, and removing items. Display low-stock alerts for items below the minimum threshold. Allow recording stock usage against a job.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/Inventory.tsx",
+          "frontend/src/pages/InventoryDetail.tsx",
+          "frontend/src/components/InventoryForm.tsx",
+          "frontend/src/components/StockUsageForm.tsx",
+          "frontend/src/hooks/useInventory.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/Inventory.tsx",
+          "frontend/src/pages/InventoryDetail.tsx",
+          "frontend/src/components/InventoryForm.tsx"
+        ]
+      },
+      {
+        "id": "REQ-7",
+        "summary": "Create a Technician / Staff Management module. Each technician record includes: name, email, phone, specialization/skills, status (Active/Inactive), assigned jobs count, and notes. Support creating, editing, and deactivating technicians. Show a technician detail page with their assigned job history.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/Technicians.tsx",
+          "frontend/src/pages/TechnicianDetail.tsx",
+          "frontend/src/components/TechnicianForm.tsx",
+          "frontend/src/hooks/useTechnicians.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/Technicians.tsx",
+          "frontend/src/pages/TechnicianDetail.tsx",
+          "frontend/src/components/TechnicianForm.tsx"
+        ]
+      },
+      {
+        "id": "REQ-8",
+        "summary": "Implement a Reports and Analytics module with the following pre-built reports: (1) Jobs Summary — total jobs by status and technician over a selectable date range; (2) Revenue Report — total invoiced and collected amounts by month; (3) Technician Performance — completed jobs and average completion time per technician; (4) Inventory Usage — top parts consumed over a period. Display data in tables with simple bar or line charts.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/Reports.tsx",
+          "frontend/src/components/JobsSummaryReport.tsx",
+          "frontend/src/components/RevenueReportChart.tsx",
+          "frontend/src/components/TechnicianPerformanceReport.tsx",
+          "frontend/src/components/InventoryUsageReport.tsx",
+          "frontend/src/hooks/useReports.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/Reports.tsx"
+        ]
+      },
+      {
+        "id": "REQ-9",
+        "summary": "Populate the application with realistic mock seed data on first load: at least 10 customers, 5 technicians, 20 jobs in various statuses, 15 invoices, 30 inventory items, and scheduled events spanning the current month. This data should be inserted into the backend on initialization if no records exist.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/authorization/MixinAuthorization.mo",
+    "backend/authorization/access-control.mo",
+    "backend/main.mo",
+    "build-request.json",
+    "build-template/Dockerfile",
+    "build-template/LICENSE",
+    "build-template/README.md",
+    "build-template/deploy.sh",
+    "build-template/icp.yaml",
+    "build-template/package.json",
+    "build-template/pnpm-lock.yaml",
+    "build-template/pnpm-workspace.yaml",
+    "build-template/scripts/prune-unused-images.js",
+    "build-template/scripts/resize-images.js",
+    "build-template/src/backend/canister.yaml",
+    "build-template/src/backend/system-idl/aaaaa-aa.did",
+    "build-template/src/frontend/canister.yaml",
+    "build-template/src/frontend/components.json",
+    "build-template/src/frontend/env.json",
+    "build-template/src/frontend/eslint-rules/no-bigint-in-query-keys.js",
+    "build-template/src/frontend/eslint-rules/require-internet-identity-provider.js",
+    "build-template/src/frontend/eslint.config.js",
+    "build-template/src/frontend/package.json",
+    "build-template/src/frontend/postcss.config.js",
+    "build-template/src/frontend/src/components/ui/accordion.tsx",
+    "build-template/src/frontend/src/components/ui/alert-dialog.tsx",
+    "build-template/src/frontend/src/components/ui/alert.tsx",
+    "build-template/src/frontend/src/components/ui/aspect-ratio.tsx",
+    "build-template/src/frontend/src/components/ui/avatar.tsx",
+    "build-template/src/frontend/src/components/ui/badge.tsx",
+    "build-template/src/frontend/src/components/ui/breadcrumb.tsx",
+    "build-template/src/frontend/src/components/ui/button.tsx",
+    "build-template/src/frontend/src/components/ui/calendar.tsx",
+    "build-template/src/frontend/src/components/ui/card.tsx",
+    "build-template/src/frontend/src/components/ui/carousel.tsx",
+    "build-template/src/frontend/src/components/ui/chart.tsx",
+    "build-template/src/frontend/src/components/ui/checkbox.tsx",
+    "build-template/src/frontend/src/components/ui/collapsible.tsx",
+    "build-template/src/frontend/src/components/ui/command.tsx",
+    "build-template/src/frontend/src/components/ui/context-menu.tsx",
+    "build-template/src/frontend/src/components/ui/dialog.tsx",
+    "build-template/src/frontend/src/components/ui/drawer.tsx",
+    "build-template/src/frontend/src/components/ui/dropdown-menu.tsx",
+    "build-template/src/frontend/src/components/ui/form.tsx",
+    "build-template/src/frontend/src/components/ui/hover-card.tsx",
+    "build-template/src/frontend/src/components/ui/input-otp.tsx",
+    "build-template/src/frontend/src/components/ui/input.tsx",
+    "build-template/src/frontend/src/components/ui/label.tsx",
+    "build-template/src/frontend/src/components/ui/menubar.tsx",
+    "build-template/src/frontend/src/components/ui/navigation-menu.tsx",
+    "build-template/src/frontend/src/components/ui/pagination.tsx",
+    "build-template/src/frontend/src/components/ui/popover.tsx",
+    "build-template/src/frontend/src/components/ui/progress.tsx",
+    "build-template/src/frontend/src/components/ui/radio-group.tsx",
+    "build-template/src/frontend/src/components/ui/resizable.tsx",
+    "build-template/src/frontend/src/components/ui/scroll-area.tsx",
+    "build-template/src/frontend/src/components/ui/select.tsx",
+    "build-template/src/frontend/src/components/ui/separator.tsx",
+    "build-template/src/frontend/src/components/ui/sheet.tsx",
+    "build-template/src/frontend/src/components/ui/sidebar.tsx",
+    "build-template/src/frontend/src/components/ui/skeleton.tsx",
+    "build-template/src/frontend/src/components/ui/slider.tsx",
+    "build-template/src/frontend/src/components/ui/sonner.tsx",
+    "build-template/src/frontend/src/components/ui/switch.tsx",
+    "build-template/src/frontend/src/components/ui/table.tsx",
+    "build-template/src/frontend/src/components/ui/tabs.tsx",
+    "build-template/src/frontend/src/components/ui/textarea.tsx",
+    "build-template/src/frontend/src/components/ui/toggle-group.tsx",
+    "build-template/src/frontend/src/components/ui/toggle.tsx",
+    "build-template/src/frontend/src/components/ui/tooltip.tsx",
+    "build-template/src/frontend/src/hooks/use-mobile.tsx",
+    "build-template/src/frontend/src/lib/utils.ts",
+    "build-template/src/frontend/tsconfig.json",
+    "build-template/src/frontend/vite.config.js",
+    "build-template/tsconfig.json",
+    "caffeine.lock.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/public/assets/generated/skpm-logo.dim_200x60.png",
+    "frontend/src/App.tsx",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/CustomerForm.tsx",
+    "frontend/src/components/InventoryForm.tsx",
+    "frontend/src/components/InvoiceForm.tsx",
+    "frontend/src/components/JobForm.tsx",
+    "frontend/src/components/Layout.tsx",
+    "frontend/src/components/ProfileSetupModal.tsx",
+    "frontend/src/components/SeedDataLoader.tsx",
+    "frontend/src/components/TechnicianForm.tsx",
+    "frontend/src/config.ts",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/lib/seedData.ts",
+    "frontend/src/lib/utils.ts",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/CustomerDetail.tsx",
+    "frontend/src/pages/Customers.tsx",
+    "frontend/src/pages/Dashboard.tsx",
+    "frontend/src/pages/Inventory.tsx",
+    "frontend/src/pages/InventoryDetail.tsx",
+    "frontend/src/pages/InvoiceDetail.tsx",
+    "frontend/src/pages/Invoices.tsx",
+    "frontend/src/pages/JobDetail.tsx",
+    "frontend/src/pages/Jobs.tsx",
+    "frontend/src/pages/LoginPage.tsx",
+    "frontend/src/pages/Reports.tsx",
+    "frontend/src/pages/Schedule.tsx",
+    "frontend/src/pages/TechnicianDetail.tsx",
+    "frontend/src/pages/Technicians.tsx",
+    "frontend/src/ui-summary.json",
+    "frontend/src/utils/StorageClient.ts",
+    "frontend/src/utils/urlParams.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-27T02:15:19.175Z",
+  "summary": "The diff implements a comprehensive field service management application with most requested features. All 11 requirements appear to have substantial implementation. However, several specific acceptance criteria have gaps or cannot be confirmed due to file truncation, particularly around REQ-5 (weekly calendar drag-to-schedule), REQ-6 (stock usage recording against a job), REQ-8 (four specific reports with charts), and REQ-1 (technician utilization rate KPI). The logo image file itself is not present in the diff (only the img tag referencing it), and the diff is missing several page files (Schedule, Inventory, InventoryDetail, JobDetail, InvoiceDetail, TechnicianDetail, Reports pages) due to omission limits.",
+  "missing_requirements": [
+    {
+      "id": "REQ-1",
+      "requirement": "Technician utilization rate KPI card on Dashboard",
+      "reason": "The Dashboard KPI array shows 6 cards (Open Jobs, Completed Today, Pending Invoices, Revenue, Customers, Technicians) but does not include a Technician Utilization Rate KPI as specified. No utilization rate field is visible in backend stats.",
+      "evidence": [
+        "frontend/src/pages/Dashboard.tsx"
+      ]
+    },
+    {
+      "id": "REQ-1",
+      "requirement": "Recent activity feed shows latest 10 events",
+      "reason": "The Dashboard page only shows recentJobs (latest 8 jobs by updatedAt) rather than a dedicated activity feed with 10 events. There is no distinct activity feed concept.",
+      "evidence": [
+        "frontend/src/pages/Dashboard.tsx"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "requirement": "Weekly calendar view and drag-to-schedule functionality",
+      "reason": "The Schedule page file was omitted from the diff due to limits. Cannot confirm monthly/weekly calendar views, drag-to-schedule, or technician availability display are implemented.",
+      "evidence": []
+    },
+    {
+      "id": "REQ-6",
+      "requirement": "Stock usage recorded and deducted from a job record",
+      "reason": "The InventoryForm only handles creating/editing inventory items. The Inventory and InventoryDetail pages were omitted from the diff. No evidence of a record stock usage against a job workflow is visible in the available files.",
+      "evidence": [
+        "frontend/src/components/InventoryForm.tsx"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "requirement": "All four pre-built reports (Jobs Summary, Revenue Report, Technician Performance, Inventory Usage) with bar/line charts",
+      "reason": "The Reports page file was omitted from the diff due to limits. Cannot confirm all four reports with date range filters and charts are implemented.",
+      "evidence": []
+    },
+    {
+      "id": "REQ-11",
+      "requirement": "Logo image file generated and placed at frontend/public/assets/generated/skpm-logo.dim_200x60.png",
+      "reason": "The Layout.tsx references the image at /assets/generated/skpm-logo.dim_200x60.png but no image file is present in the added files list. The actual generated image asset is not in the diff.",
+      "evidence": [
+        "frontend/src/components/Layout.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "ProfileSetupModal — on-login profile creation flow for name, email, and role",
+      "reason": "The build request does not specify a user profile setup modal or user profile management beyond Internet Identity authentication. A full profile setup flow with name/email/role was added.",
+      "evidence": [
+        "frontend/src/components/ProfileSetupModal.tsx",
+        "frontend/src/App.tsx"
+      ]
+    },
+    {
+      "description": "User Profile CRUD in backend (getCallerUserProfile, saveCallerUserProfile, getUserProfile)",
+      "reason": "The build request does not mention user profile management features in the backend. These functions were added beyond the specified requirements.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "SeedDataLoader component as a standalone React component triggering seeding from the frontend",
+      "reason": "REQ-9 is tagged as a backend requirement specifying seed data should be inserted on initialization if no records exist. A frontend SeedDataLoader component that calls backend seed functions is an architectural addition not specified.",
+      "evidence": [
+        "frontend/src/components/SeedDataLoader.tsx",
+        "frontend/src/pages/Dashboard.tsx"
+      ]
+    },
+    {
+      "description": "deleteJob restricted to admin role only in the backend",
+      "reason": "The build request only specifies that jobs can be deleted with no mention of role-based access control restricting deletion to admins. This is an unspecified addition of access control logic.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    }
+  ],
+  "confidence": 0.62,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/CustomerForm.tsx",
+    "frontend/src/components/InventoryForm.tsx",
+    "frontend/src/components/InvoiceForm.tsx",
+    "frontend/src/components/JobForm.tsx",
+    "frontend/src/components/Layout.tsx",
+    "frontend/src/components/ProfileSetupModal.tsx",
+    "frontend/src/components/SeedDataLoader.tsx",
+    "frontend/src/components/TechnicianForm.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/lib/seedData.ts",
+    "frontend/src/lib/utils.ts",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/CustomerDetail.tsx",
+    "frontend/src/pages/Customers.tsx",
+    "frontend/src/pages/Dashboard.tsx",
+    "frontend/src/pages/Inventory.tsx",
+    "frontend/src/pages/InventoryDetail.tsx",
+    "frontend/src/pages/InvoiceDetail.tsx",
+    "frontend/src/pages/Invoices.tsx",
+    "frontend/src/pages/JobDetail.tsx",
+    "frontend/src/pages/Jobs.tsx",
+    "frontend/src/pages/LoginPage.tsx",
+    "frontend/src/pages/Reports.tsx",
+    "frontend/src/pages/Schedule.tsx",
+    "frontend/src/pages/TechnicianDetail.tsx",
+    "frontend/src/pages/Technicians.tsx",
+    "frontend/src/utils/urlParams.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

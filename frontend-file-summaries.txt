@@ -1,0 +1,15 @@
+{
+  "frontend/src/pages/InvoiceDetail.tsx": "Invoice detail page with line items, totals, and mark-paid action. Fixed `useParams` `from` to use `/auth-layout/invoices/$id`.",
+  "frontend/src/pages/Dashboard.tsx": "Main dashboard page with KPI cards, job status bar chart, and recent activity feed. Replaced all `flex-shrink-0` with `shrink-0` and removed unused `Badge` and `formatDate` imports.",
+  "frontend/src/pages/JobDetail.tsx": "Job detail page showing full job info, timeline, and parts used. Fixed `useParams` `from` to use the full nested route path `/auth-layout/jobs/$id`.",
+  "frontend/src/pages/CustomerDetail.tsx": "Customer detail page with contact info and tabbed jobs/invoices history. Fixed `useParams` `from` to use `/auth-layout/customers/$id`.",
+  "frontend/src/components/Layout.tsx": "App shell with navy sidebar navigation, top header bar, and mobile overlay. Replaced all `flex-shrink-0` with `shrink-0` throughout.",
+  "frontend/src/pages/Schedule.tsx": "Schedule page with monthly calendar grid and upcoming jobs list view. Replaced `flex-shrink-0` with `shrink-0` and fixed a stale closure on `today` reference in `upcomingJobs` filter.",
+  "frontend/src/pages/Inventory.tsx": "Inventory list page with search, category filter, low-stock alerts, and CRUD actions for all inventory items.",
+  "frontend/src/pages/InventoryDetail.tsx": "Inventory item detail page showing stock levels, low-stock warnings, and a record-usage dialog. Uses `/auth-layout/inventory/$id` for `useParams`.",
+  "frontend/src/components/TechnicianForm.tsx": "Modal form for creating and editing technician records with name, contact, specialization, skills, status, and notes fields.",
+  "frontend/src/pages/Technicians.tsx": "Technicians list page with search, job count per technician, status badges, and deactivate/delete actions.",
+  "frontend/src/pages/TechnicianDetail.tsx": "Technician detail page showing contact info, skills, performance stats, and full job history. Uses `/auth-layout/technicians/$id` for `useParams`.",
+  "frontend/src/pages/Reports.tsx": "Reports and analytics page with four tabbed reports (Jobs Summary, Revenue, Technician Performance, Inventory Usage) using Recharts bar charts and data tables. Fixed `labelFormatter` type errors by using `(label: string)` signature and looking up full names from the data array instead of accessing the `payload` parameter.",
+  "frontend/src/components/InventoryForm.tsx": "Modal form component for creating and editing inventory items with fields for name, SKU, category, supplier, quantity, minimum threshold, unit cost, and notes."
+}

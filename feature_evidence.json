@@ -1,0 +1,208 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-main-dashboard-page-displaying-key-performance-indicators-and-overview-stats-total-open-jobs-completed-jobs-today-pending-invoices-total-revenue-this-month-technician-utilization-rate-and-recent-activity-feed-use-card-based-kpi-widgets-and-a-summary-chart-showing-job-status-distribution",
+      "featureTitle": "Create a main Dashboard page displaying key performance indicators and overview stats: total open jobs, completed jobs today, pending invoices, total revenue this month, technician utilization rate, and recent activity feed. Use card-based KPI widgets and a summary chart showing job status distribution.",
+      "files": [
+        "frontend/src/pages/Dashboard.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-job-work-order-management-module-users-can-create-new-jobs-with-fields-job-title-description-customer-assigned-technician-priority-low-medium-high-urgent-status-new-in-progress-on-hold-completed-cancelled-scheduled-date-location-address-and-notes-support-listing-all-jobs-with-filters-by-status-priority-technician-and-date-range-allow-editing-and-deleting-jobs",
+      "featureTitle": "Implement a Job / Work Order management module. Users can create new jobs with fields: job title, description, customer, assigned technician, priority (Low/Medium/High/Urgent), status (New/In Progress/On Hold/Completed/Cancelled), scheduled date, location/address, and notes. Support listing all jobs with filters by status, priority, technician, and date range. Allow editing and deleting jobs.",
+      "files": [
+        "frontend/src/components/JobForm.tsx",
+        "frontend/src/pages/JobDetail.tsx",
+        "frontend/src/pages/Jobs.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-crm-customer-client-management-module-each-customer-record-includes-name-company-email-phone-address-customer-type-residential-commercial-notes-and-job-history-support-creating-editing-deleting-and-searching-customers-show-a-customer-detail-page-with-linked-jobs-and-invoices",
+      "featureTitle": "Build a CRM (Customer/Client Management) module. Each customer record includes: name, company, email, phone, address, customer type (Residential/Commercial), notes, and job history. Support creating, editing, deleting, and searching customers. Show a customer detail page with linked jobs and invoices.",
+      "files": [
+        "frontend/src/components/CustomerForm.tsx",
+        "frontend/src/pages/CustomerDetail.tsx",
+        "frontend/src/pages/Customers.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-an-invoicing-and-billing-module-invoices-link-to-a-customer-and-optionally-to-a-job-invoice-fields-invoice-number-auto-generated-customer-linked-job-optional-issue-date-due-date-line-items-description-quantity-unit-price-subtotal-tax-rate-total-payment-status-unpaid-partial-paid-overdue-and-notes-support-creating-editing-marking-as-paid-and-listing-invoices-with-filters-by-status-and-customer",
+      "featureTitle": "Create an Invoicing and Billing module. Invoices link to a customer and optionally to a job. Invoice fields: invoice number (auto-generated), customer, linked job (optional), issue date, due date, line items (description, quantity, unit price), subtotal, tax rate, total, payment status (Unpaid/Partial/Paid/Overdue), and notes. Support creating, editing, marking as paid, and listing invoices with filters by status and customer.",
+      "files": [
+        "frontend/src/components/InvoiceForm.tsx",
+        "frontend/src/pages/InvoiceDetail.tsx",
+        "frontend/src/pages/Invoices.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-scheduling-and-calendar-module-display-a-calendar-view-monthly-and-weekly-showing-scheduled-jobs-and-technician-assignments-allow-dragging-or-selecting-a-date-to-schedule-a-job-show-technician-availability-and-assigned-jobs-per-day-support-viewing-all-scheduled-jobs-in-a-list-view-as-well",
+      "featureTitle": "Implement a Scheduling and Calendar module. Display a calendar view (monthly and weekly) showing scheduled jobs and technician assignments. Allow dragging or selecting a date to schedule a job. Show technician availability and assigned jobs per day. Support viewing all scheduled jobs in a list view as well.",
+      "files": [
+        "frontend/src/pages/Schedule.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-an-inventory-parts-stock-management-module-each-inventory-item-has-item-name-sku-part-number-category-quantity-in-stock-minimum-stock-threshold-unit-cost-supplier-and-notes-support-adding-editing-and-removing-items-display-low-stock-alerts-for-items-below-the-minimum-threshold-allow-recording-stock-usage-against-a-job",
+      "featureTitle": "Build an Inventory / Parts & Stock Management module. Each inventory item has: item name, SKU/part number, category, quantity in stock, minimum stock threshold, unit cost, supplier, and notes. Support adding, editing, and removing items. Display low-stock alerts for items below the minimum threshold. Allow recording stock usage against a job.",
+      "files": [
+        "frontend/src/components/InventoryForm.tsx",
+        "frontend/src/pages/Inventory.tsx",
+        "frontend/src/pages/InventoryDetail.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-technician-staff-management-module-each-technician-record-includes-name-email-phone-specialization-skills-status-active-inactive-assigned-jobs-count-and-notes-support-creating-editing-and-deactivating-technicians-show-a-technician-detail-page-with-their-assigned-job-history",
+      "featureTitle": "Create a Technician / Staff Management module. Each technician record includes: name, email, phone, specialization/skills, status (Active/Inactive), assigned jobs count, and notes. Support creating, editing, and deactivating technicians. Show a technician detail page with their assigned job history.",
+      "files": [
+        "frontend/src/components/TechnicianForm.tsx",
+        "frontend/src/pages/TechnicianDetail.tsx",
+        "frontend/src/pages/Technicians.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-reports-and-analytics-module-with-the-following-pre-built-reports-1-jobs-summary-total-jobs-by-status-and-technician-over-a-selectable-date-range-2-revenue-report-total-invoiced-and-collected-amounts-by-month-3-technician-performance-completed-jobs-and-average-completion-time-per-technician-4-inventory-usage-top-parts-consumed-over-a-period-display-data-in-tables-with-simple-bar-or-line-charts",
+      "featureTitle": "Implement a Reports and Analytics module with the following pre-built reports: (1) Jobs Summary — total jobs by status and technician over a selectable date range; (2) Revenue Report — total invoiced and collected amounts by month; (3) Technician Performance — completed jobs and average completion time per technician; (4) Inventory Usage — top parts consumed over a period. Display data in tables with simple bar or line charts.",
+      "files": [
+        "frontend/src/pages/Reports.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-design-a-professional-field-service-management-visual-theme-a-deep-navy-and-steel-gray-sidebar-navigation-with-amber-orange-accent-colors-for-primary-actions-and-status-highlights-use-clean-card-based-layouts-with-subtle-shadows-a-compact-data-table-style-for-list-views-and-a-left-sidebar-navigation-linking-to-all-modules-dashboard-jobs-customers-invoices-schedule-inventory-technicians-reports-apply-this-theme-consistently-across-all-pages",
+      "featureTitle": "Design a professional field-service management visual theme: a deep navy and steel-gray sidebar navigation with amber/orange accent colors for primary actions and status highlights. Use clean card-based layouts with subtle shadows, a compact data-table style for list views, and a left-sidebar navigation linking to all modules (Dashboard, Jobs, Customers, Invoices, Schedule, Inventory, Technicians, Reports). Apply this theme consistently across all pages.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-generate-and-render-a-custom-app-logo-for-skpm-technical-services-displayed-in-the-top-of-the-sidebar-navigation-using-the-generated-image-as-a-static-asset-from-frontend-public-assets-generated",
+      "featureTitle": "Generate and render a custom app logo for SKPM Technical Services displayed in the top of the sidebar navigation, using the generated image as a static asset from frontend/public/assets/generated.",
+      "files": [
+        "frontend/src/components/Layout.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

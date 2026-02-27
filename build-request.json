@@ -1,0 +1,234 @@
+{
+  "kind": "build_request",
+  "title": "SKPM Technical Services Management Software — Full-Featured Field Service App",
+  "projectName": "SKPM Technical Services",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a main Dashboard page displaying key performance indicators and overview stats: total open jobs, completed jobs today, pending invoices, total revenue this month, technician utilization rate, and recent activity feed. Use card-based KPI widgets and a summary chart showing job status distribution.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "I Want software with all of this features"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Dashboard renders KPI cards with numeric values from backend data",
+        "Job status distribution chart is visible",
+        "Recent activity feed shows latest 10 events",
+        "All stats update from live backend state"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement a Job / Work Order management module. Users can create new jobs with fields: job title, description, customer, assigned technician, priority (Low/Medium/High/Urgent), status (New/In Progress/On Hold/Completed/Cancelled), scheduled date, location/address, and notes. Support listing all jobs with filters by status, priority, technician, and date range. Allow editing and deleting jobs.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Job/work order management (create, assign, track jobs)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Job creation form saves a new job record to the backend",
+        "Job list displays all jobs with status badges and priority indicators",
+        "Filters by status, priority, technician, and date range work correctly",
+        "Individual job detail view shows all fields",
+        "Jobs can be edited and deleted"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Build a CRM (Customer/Client Management) module. Each customer record includes: name, company, email, phone, address, customer type (Residential/Commercial), notes, and job history. Support creating, editing, deleting, and searching customers. Show a customer detail page with linked jobs and invoices.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "CRM - customer/client management"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Customer list page shows all customers in a searchable table",
+        "Customer form allows creating and editing customer records",
+        "Customer detail page lists all linked jobs and invoices",
+        "Customer records can be deleted"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Create an Invoicing and Billing module. Invoices link to a customer and optionally to a job. Invoice fields: invoice number (auto-generated), customer, linked job (optional), issue date, due date, line items (description, quantity, unit price), subtotal, tax rate, total, payment status (Unpaid/Partial/Paid/Overdue), and notes. Support creating, editing, marking as paid, and listing invoices with filters by status and customer.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Invoicing and billing module"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Invoice creation form computes subtotal, tax, and total automatically",
+        "Invoice list shows status badges and totals",
+        "Invoice number is auto-incremented on creation",
+        "Invoice status can be updated (mark as paid/overdue)",
+        "Invoices can be filtered by status and customer"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Implement a Scheduling and Calendar module. Display a calendar view (monthly and weekly) showing scheduled jobs and technician assignments. Allow dragging or selecting a date to schedule a job. Show technician availability and assigned jobs per day. Support viewing all scheduled jobs in a list view as well.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Scheduling and calendar for technicians/jobs"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Monthly and weekly calendar views render scheduled jobs as events",
+        "Clicking a date opens job scheduling form pre-filled with that date",
+        "Each event shows job title, technician name, and status",
+        "List view of upcoming scheduled jobs is available"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Build an Inventory / Parts & Stock Management module. Each inventory item has: item name, SKU/part number, category, quantity in stock, minimum stock threshold, unit cost, supplier, and notes. Support adding, editing, and removing items. Display low-stock alerts for items below the minimum threshold. Allow recording stock usage against a job.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Inventory and parts/stock management"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Inventory list shows all items with current stock levels",
+        "Items below minimum threshold are highlighted with a low-stock alert",
+        "Stock usage can be recorded and deducted from a job record",
+        "Items can be created, edited, and deleted"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Create a Technician / Staff Management module. Each technician record includes: name, email, phone, specialization/skills, status (Active/Inactive), assigned jobs count, and notes. Support creating, editing, and deactivating technicians. Show a technician detail page with their assigned job history.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Technician/staff management"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Technician list shows all staff with active/inactive status badges",
+        "Technician detail page shows assigned job history",
+        "Technicians can be created, edited, and deactivated",
+        "Active technicians appear as options in the job assignment dropdown"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Implement a Reports and Analytics module with the following pre-built reports: (1) Jobs Summary — total jobs by status and technician over a selectable date range; (2) Revenue Report — total invoiced and collected amounts by month; (3) Technician Performance — completed jobs and average completion time per technician; (4) Inventory Usage — top parts consumed over a period. Display data in tables with simple bar or line charts.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Reports and analytics module"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All four reports render with data from the backend",
+        "Date range filter applies to all reports",
+        "Charts (bar/line) display alongside tabular data",
+        "Report data reflects actual stored records"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Populate the application with realistic mock seed data on first load: at least 10 customers, 5 technicians, 20 jobs in various statuses, 15 invoices, 30 inventory items, and scheduled events spanning the current month. This data should be inserted into the backend on initialization if no records exist.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "realistic mock data"
+        ]
+      },
+      "acceptanceCriteria": [
+        "On first load, all modules display populated data without manual entry",
+        "Seed data is only inserted when no existing records are found",
+        "Mock data covers all entities: customers, technicians, jobs, invoices, inventory, schedule"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Design a professional field-service management visual theme: a deep navy and steel-gray sidebar navigation with amber/orange accent colors for primary actions and status highlights. Use clean card-based layouts with subtle shadows, a compact data-table style for list views, and a left-sidebar navigation linking to all modules (Dashboard, Jobs, Customers, Invoices, Schedule, Inventory, Technicians, Reports). Apply this theme consistently across all pages.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "I Want software with all of this features"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Left sidebar navigation is present on all pages with links to all 8 modules",
+        "Navy/gray sidebar and amber accent colors are applied consistently",
+        "Card-based KPI widgets and compact tables are used throughout",
+        "Active navigation item is visually highlighted"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Generate and render a custom app logo for SKPM Technical Services displayed in the top of the sidebar navigation, using the generated image as a static asset from frontend/public/assets/generated.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "I Want software with all of this features"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Logo image is displayed at the top of the sidebar",
+        "Logo loads from the static assets path"
+      ]
+    }
+  ],
+  "constraints": [
+    "All backend logic must remain in a single Motoko actor (backend/main.mo)",
+    "Do not integrate any external APIs, email services, or third-party authentication beyond Internet Identity",
+    "Immutable frontend paths (hooks, main.tsx, ui components) must not be modified"
+  ],
+  "nonGoals": [
+    "Real-time notifications or WebSocket-based updates",
+    "PDF invoice generation or email sending",
+    "GPS or map-based technician tracking",
+    "Mobile app or React Native version",
+    "External payment processing integration"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Professional technical services company logo with stylized wrench-and-gear icon, bold sans-serif text 'SKPM' in white on a deep navy background with amber accent (skpm-logo.dim_200x60.png)"
+    ],
+    "edits": []
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "SKPM Technical Services Management Software - a full-featured field service management app with dashboard, job management, CRM, invoicing, scheduling, inventory, and more, built with realistic mock data based on the reference site skpmtecnicalservises.base44.app.",
+  "architectural_notes": [
+    "Reference site: skpmtecnicalservises.base44.app — replicate all features with realistic mock data",
+    "App type: Field/Technical Services Management Software"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Professional technical services company logo with stylized wrench-and-gear icon, bold sans-serif text 'SKPM' in white on a deep navy background with amber accent (skpm-logo.dim_200x60.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-main-dashboard-page-displaying-key-performance-indicators-and-overview-stats-total-open-jobs-completed-jobs-today-pending-invoices-total-revenue-this-month-technician-utilization-rate-and-recent-activity-feed-use-card-based-kpi-widgets-and-a-summary-chart-showing-job-status-distribution",
+      "title": "Create a main Dashboard page displaying key performance indicators and overview stats: total open jobs, completed jobs today, pending invoices, total revenue this month, technician utilization rate, and recent activity feed. Use card-based KPI widgets and a summary chart showing job status distribution.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-job-work-order-management-module-users-can-create-new-jobs-with-fields-job-title-description-customer-assigned-technician-priority-low-medium-high-urgent-status-new-in-progress-on-hold-completed-cancelled-scheduled-date-location-address-and-notes-support-listing-all-jobs-with-filters-by-status-priority-technician-and-date-range-allow-editing-and-deleting-jobs",
+      "title": "Implement a Job / Work Order management module. Users can create new jobs with fields: job title, description, customer, assigned technician, priority (Low/Medium/High/Urgent), status (New/In Progress/On Hold/Completed/Cancelled), scheduled date, location/address, and notes. Support listing all jobs with filters by status, priority, technician, and date range. Allow editing and deleting jobs.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-crm-customer-client-management-module-each-customer-record-includes-name-company-email-phone-address-customer-type-residential-commercial-notes-and-job-history-support-creating-editing-deleting-and-searching-customers-show-a-customer-detail-page-with-linked-jobs-and-invoices",
+      "title": "Build a CRM (Customer/Client Management) module. Each customer record includes: name, company, email, phone, address, customer type (Residential/Commercial), notes, and job history. Support creating, editing, deleting, and searching customers. Show a customer detail page with linked jobs and invoices.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-an-invoicing-and-billing-module-invoices-link-to-a-customer-and-optionally-to-a-job-invoice-fields-invoice-number-auto-generated-customer-linked-job-optional-issue-date-due-date-line-items-description-quantity-unit-price-subtotal-tax-rate-total-payment-status-unpaid-partial-paid-overdue-and-notes-support-creating-editing-marking-as-paid-and-listing-invoices-with-filters-by-status-and-customer",
+      "title": "Create an Invoicing and Billing module. Invoices link to a customer and optionally to a job. Invoice fields: invoice number (auto-generated), customer, linked job (optional), issue date, due date, line items (description, quantity, unit price), subtotal, tax rate, total, payment status (Unpaid/Partial/Paid/Overdue), and notes. Support creating, editing, marking as paid, and listing invoices with filters by status and customer.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-scheduling-and-calendar-module-display-a-calendar-view-monthly-and-weekly-showing-scheduled-jobs-and-technician-assignments-allow-dragging-or-selecting-a-date-to-schedule-a-job-show-technician-availability-and-assigned-jobs-per-day-support-viewing-all-scheduled-jobs-in-a-list-view-as-well",
+      "title": "Implement a Scheduling and Calendar module. Display a calendar view (monthly and weekly) showing scheduled jobs and technician assignments. Allow dragging or selecting a date to schedule a job. Show technician availability and assigned jobs per day. Support viewing all scheduled jobs in a list view as well.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-an-inventory-parts-stock-management-module-each-inventory-item-has-item-name-sku-part-number-category-quantity-in-stock-minimum-stock-threshold-unit-cost-supplier-and-notes-support-adding-editing-and-removing-items-display-low-stock-alerts-for-items-below-the-minimum-threshold-allow-recording-stock-usage-against-a-job",
+      "title": "Build an Inventory / Parts & Stock Management module. Each inventory item has: item name, SKU/part number, category, quantity in stock, minimum stock threshold, unit cost, supplier, and notes. Support adding, editing, and removing items. Display low-stock alerts for items below the minimum threshold. Allow recording stock usage against a job.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-technician-staff-management-module-each-technician-record-includes-name-email-phone-specialization-skills-status-active-inactive-assigned-jobs-count-and-notes-support-creating-editing-and-deactivating-technicians-show-a-technician-detail-page-with-their-assigned-job-history",
+      "title": "Create a Technician / Staff Management module. Each technician record includes: name, email, phone, specialization/skills, status (Active/Inactive), assigned jobs count, and notes. Support creating, editing, and deactivating technicians. Show a technician detail page with their assigned job history.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-reports-and-analytics-module-with-the-following-pre-built-reports-1-jobs-summary-total-jobs-by-status-and-technician-over-a-selectable-date-range-2-revenue-report-total-invoiced-and-collected-amounts-by-month-3-technician-performance-completed-jobs-and-average-completion-time-per-technician-4-inventory-usage-top-parts-consumed-over-a-period-display-data-in-tables-with-simple-bar-or-line-charts",
+      "title": "Implement a Reports and Analytics module with the following pre-built reports: (1) Jobs Summary — total jobs by status and technician over a selectable date range; (2) Revenue Report — total invoiced and collected amounts by month; (3) Technician Performance — completed jobs and average completion time per technician; (4) Inventory Usage — top parts consumed over a period. Display data in tables with simple bar or line charts.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-a-professional-field-service-management-visual-theme-a-deep-navy-and-steel-gray-sidebar-navigation-with-amber-orange-accent-colors-for-primary-actions-and-status-highlights-use-clean-card-based-layouts-with-subtle-shadows-a-compact-data-table-style-for-list-views-and-a-left-sidebar-navigation-linking-to-all-modules-dashboard-jobs-customers-invoices-schedule-inventory-technicians-reports-apply-this-theme-consistently-across-all-pages",
+      "title": "Design a professional field-service management visual theme: a deep navy and steel-gray sidebar navigation with amber/orange accent colors for primary actions and status highlights. Use clean card-based layouts with subtle shadows, a compact data-table style for list views, and a left-sidebar navigation linking to all modules (Dashboard, Jobs, Customers, Invoices, Schedule, Inventory, Technicians, Reports). Apply this theme consistently across all pages.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-generate-and-render-a-custom-app-logo-for-skpm-technical-services-displayed-in-the-top-of-the-sidebar-navigation-using-the-generated-image-as-a-static-asset-from-frontend-public-assets-generated",
+      "title": "Generate and render a custom app logo for SKPM Technical Services displayed in the top of the sidebar navigation, using the generated image as a static asset from frontend/public/assets/generated.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Dashboard with overview stats and KPIs",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Job/work order management (create, assign, track jobs)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "CRM - customer/client management",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Invoicing and billing module",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Scheduling and calendar for technicians/jobs",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Inventory and parts/stock management",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Technician/staff management",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Reports and analytics module",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-17",
+      "summary": "Populate the application with realistic mock seed data on first load: at least 10 customers, 5 technicians, 20 jobs in various statuses, 15 invoices, 30 inventory items, and scheduled events spanning the current month. This data should be inserted into the backend on initialization if no records exist.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "SKPM Technical Services",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

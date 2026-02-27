@@ -1,0 +1,312 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "SKPM Technical Services Management Software — Full-Featured Field Service App",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create Dashboard page with KPIs, job status chart, and recent activity feed",
+      "acceptanceCriteria": [
+        "Dashboard renders KPI cards with numeric values from backend data",
+        "Job status distribution chart is visible",
+        "Recent activity feed shows latest 10 events",
+        "All stats update from live backend state"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Dashboard.tsx",
+          "operation": "create",
+          "description": "Create Dashboard page component displaying KPI cards (total open jobs, completed jobs today, pending invoices, total revenue this month, technician utilization rate) fetched from getDashboardStats backend method. Include a job status distribution chart using getJobStatusSummary and a recent activity feed. Use card-based layout with shadcn/ui Card components."
+        },
+        {
+          "path": "frontend/src/hooks/useDashboardStats.ts",
+          "operation": "create",
+          "description": "Create React Query hook to fetch dashboard statistics from backend getDashboardStats() method. Return loading, error, and data states for consumption by Dashboard page."
+        },
+        {
+          "path": "frontend/src/hooks/useJobStatusSummary.ts",
+          "operation": "create",
+          "description": "Create React Query hook to fetch job status summary from backend getJobStatusSummary() method for the status distribution chart."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement Job/Work Order management UI with create, list, filter, edit, and delete capabilities",
+      "acceptanceCriteria": [
+        "Job creation form saves a new job record to the backend",
+        "Job list displays all jobs with status badges and priority indicators",
+        "Filters by status, priority, technician, and date range work correctly",
+        "Individual job detail view shows all fields",
+        "Jobs can be edited and deleted"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Jobs.tsx",
+          "operation": "create",
+          "description": "Create Jobs list page displaying all jobs in a data table with status badges and priority indicators. Include filter controls for status, priority, technician, and date range using getAllJobs, getJobsByStatus, getJobsByPriority, getJobsByTechnician, and getJobsByDateRange methods. Add create job button that opens JobForm modal. Each row links to job detail page."
+        },
+        {
+          "path": "frontend/src/pages/JobDetail.tsx",
+          "operation": "create",
+          "description": "Create JobDetail page showing full job information fetched via getJob(id). Display job title, description, customer, assigned technician, priority, status, scheduled date, location, and notes. Include edit and delete action buttons. Show linked stock usage records via getStockUsageByJob."
+        },
+        {
+          "path": "frontend/src/components/JobForm.tsx",
+          "operation": "create",
+          "description": "Create JobForm component for creating and editing jobs. Include form fields: job title, description, customer (dropdown from getAllCustomers), assigned technician (dropdown from getAllTechnicians with active status), priority (dropdown using getAllPriorities), status (dropdown using getAllStatuses), scheduled date, location/address, and notes. Use createJob for new jobs and updateJob for editing. Validate all required fields."
+        },
+        {
+          "path": "frontend/src/hooks/useJobs.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for job operations: useGetAllJobs, useGetJob(id), useCreateJob, useUpdateJob, useDeleteJob. Also include filtered query hooks: useGetJobsByStatus, useGetJobsByPriority, useGetJobsByTechnician, useGetJobsByDateRange."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Build CRM Customer/Client Management UI with CRUD and search",
+      "acceptanceCriteria": [
+        "Customer list page shows all customers in a searchable table",
+        "Customer form allows creating and editing customer records",
+        "Customer detail page lists all linked jobs and invoices",
+        "Customer records can be deleted"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Customers.tsx",
+          "operation": "create",
+          "description": "Create Customers list page displaying all customers in a searchable data table using getAllCustomers and searchCustomers methods. Include customer type badges (Residential/Commercial). Add create customer button that opens CustomerForm modal. Each row links to customer detail page."
+        },
+        {
+          "path": "frontend/src/pages/CustomerDetail.tsx",
+          "operation": "create",
+          "description": "Create CustomerDetail page showing full customer information via getCustomer(id). Display name, company, email, phone, address, customer type, and notes. Include linked jobs (via getJobsByCustomer) and invoices (via getInvoicesByCustomer) in separate tabs or sections. Include edit and delete action buttons."
+        },
+        {
+          "path": "frontend/src/components/CustomerForm.tsx",
+          "operation": "create",
+          "description": "Create CustomerForm component for creating and editing customers. Include form fields: name, company, email, phone, address, customer type (Residential/Commercial radio or dropdown), and notes. Use createCustomer for new records and updateCustomer for editing."
+        },
+        {
+          "path": "frontend/src/hooks/useCustomers.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for customer operations: useGetAllCustomers, useGetCustomer(id), useCreateCustomer, useUpdateCustomer, useDeleteCustomer, useSearchCustomers(searchText)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Create Invoicing and Billing UI with auto-computed totals and status management",
+      "acceptanceCriteria": [
+        "Invoice creation form computes subtotal, tax, and total automatically",
+        "Invoice list shows status badges and totals",
+        "Invoice number is auto-incremented on creation",
+        "Invoice status can be updated (mark as paid/overdue)",
+        "Invoices can be filtered by status and customer"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Invoices.tsx",
+          "operation": "create",
+          "description": "Create Invoices list page displaying all invoices in a data table with payment status badges and total amounts using getAllInvoices. Include filter controls for status (via getInvoicesByStatus) and customer (via getInvoicesByCustomer). Add create invoice button that opens InvoiceForm modal. Each row links to invoice detail page."
+        },
+        {
+          "path": "frontend/src/pages/InvoiceDetail.tsx",
+          "operation": "create",
+          "description": "Create InvoiceDetail page showing full invoice information via getInvoice(id). Display invoice number, customer, linked job (if any), issue date, due date, line items table, subtotal, tax, total, payment status, and notes. Include edit button and mark as paid action using markInvoicePaid method."
+        },
+        {
+          "path": "frontend/src/components/InvoiceForm.tsx",
+          "operation": "create",
+          "description": "Create InvoiceForm component for creating and editing invoices. Include fields: customer (dropdown from getAllCustomers), linked job (optional dropdown from getJobsByCustomer when customer is selected), issue date, due date, dynamic line items (description, quantity, unit price), tax rate, payment status, and notes. Auto-compute subtotal (sum of line items), tax, and total on client side. Invoice number auto-generated by backend. Use createInvoice for new invoices and updateInvoice for editing."
+        },
+        {
+          "path": "frontend/src/hooks/useInvoices.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for invoice operations: useGetAllInvoices, useGetInvoice(id), useCreateInvoice, useUpdateInvoice, useDeleteInvoice, useMarkInvoicePaid(id), useGetInvoicesByStatus(status), useGetInvoicesByCustomer(customerId)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Implement Scheduling and Calendar UI with monthly/weekly views and job scheduling",
+      "acceptanceCriteria": [
+        "Monthly and weekly calendar views render scheduled jobs as events",
+        "Clicking a date opens job scheduling form pre-filled with that date",
+        "Each event shows job title, technician name, and status",
+        "List view of upcoming scheduled jobs is available"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Schedule.tsx",
+          "operation": "create",
+          "description": "Create Schedule page with monthly and weekly calendar views displaying scheduled jobs from getAllJobs filtered by scheduledDate. Each event shows job title, assigned technician name (fetched via getTechnician), and status badge. Clicking a date opens JobForm modal pre-filled with that date. Include a list view tab showing upcoming scheduled jobs sorted by date."
+        },
+        {
+          "path": "frontend/src/components/Calendar.tsx",
+          "operation": "create",
+          "description": "Create Calendar component supporting monthly and weekly view modes. Render job events on scheduled dates with color coding by status. Allow clicking on dates to trigger job creation. Use getAllJobs and getAllTechnicians data to display events."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Build Inventory/Parts & Stock Management UI with low-stock alerts and usage tracking",
+      "acceptanceCriteria": [
+        "Inventory list shows all items with current stock levels",
+        "Items below minimum threshold are highlighted with a low-stock alert",
+        "Stock usage can be recorded and deducted from a job record",
+        "Items can be created, edited, and deleted"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Inventory.tsx",
+          "operation": "create",
+          "description": "Create Inventory list page displaying all items in a data table via getAllInventoryItems. Highlight items below minimum stock threshold using getLowStockItems with alert badges or colors. Show item name, SKU, category, quantity in stock, minimum threshold, unit cost, and supplier. Add create item button that opens InventoryForm modal. Each row links to inventory detail page."
+        },
+        {
+          "path": "frontend/src/pages/InventoryDetail.tsx",
+          "operation": "create",
+          "description": "Create InventoryDetail page showing full item information via getInventoryItem(id). Display name, SKU, category, quantity in stock, minimum threshold, unit cost, supplier, and notes. Include edit and delete action buttons. Add record stock usage button that opens StockUsageForm modal."
+        },
+        {
+          "path": "frontend/src/components/InventoryForm.tsx",
+          "operation": "create",
+          "description": "Create InventoryForm component for creating and editing inventory items. Include fields: item name, SKU/part number, category, quantity in stock, minimum stock threshold, unit cost, supplier, and notes. Use createInventoryItem for new items and updateInventoryItem for editing."
+        },
+        {
+          "path": "frontend/src/components/StockUsageForm.tsx",
+          "operation": "create",
+          "description": "Create StockUsageForm component for recording stock usage against a job. Include fields: item (dropdown from getAllInventoryItems), job (dropdown from getAllJobs), and quantity used. Use recordStockUsage method to save the record."
+        },
+        {
+          "path": "frontend/src/hooks/useInventory.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for inventory operations: useGetAllInventoryItems, useGetInventoryItem(id), useCreateInventoryItem, useUpdateInventoryItem, useDeleteInventoryItem, useGetLowStockItems, useRecordStockUsage."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Create Technician/Staff Management UI with CRUD and assigned job history",
+      "acceptanceCriteria": [
+        "Technician list shows all staff with active/inactive status badges",
+        "Technician detail page shows assigned job history",
+        "Technicians can be created, edited, and deactivated",
+        "Active technicians appear as options in the job assignment dropdown"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Technicians.tsx",
+          "operation": "create",
+          "description": "Create Technicians list page displaying all technicians in a data table via getAllTechnicians. Show status badges (Active/Inactive), name, email, phone, specialization, and assigned jobs count. Add create technician button that opens TechnicianForm modal. Each row links to technician detail page."
+        },
+        {
+          "path": "frontend/src/pages/TechnicianDetail.tsx",
+          "operation": "create",
+          "description": "Create TechnicianDetail page showing full technician information via getTechnician(id). Display name, email, phone, specialization/skills, status, and notes. Show assigned job history via getJobsByTechnician(id). Include edit and deactivate action buttons (using deactivateTechnician method)."
+        },
+        {
+          "path": "frontend/src/components/TechnicianForm.tsx",
+          "operation": "create",
+          "description": "Create TechnicianForm component for creating and editing technicians. Include fields: name, email, phone, specialization/skills (comma-separated or multi-input), status (Active/Inactive), and notes. Use createTechnician for new records and updateTechnician for editing."
+        },
+        {
+          "path": "frontend/src/hooks/useTechnicians.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for technician operations: useGetAllTechnicians, useGetTechnician(id), useCreateTechnician, useUpdateTechnician, useDeleteTechnician, useDeactivateTechnician(id)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Implement Reports and Analytics UI with Jobs Summary, Revenue, Technician Performance, and Inventory Usage reports",
+      "acceptanceCriteria": [
+        "All four reports render with data from the backend",
+        "Date range filter applies to all reports",
+        "Charts (bar/line) display alongside tabular data",
+        "Report data reflects actual stored records"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Reports.tsx",
+          "operation": "create",
+          "description": "Create Reports page with tabs or sections for four reports: (1) Jobs Summary (via getJobStatusSummary and getJobsByDateRange with status breakdown per technician), (2) Revenue Report (via getRevenueReport showing invoiced and collected amounts by month), (3) Technician Performance (via getTechnicianPerformance showing completed jobs and assigned jobs per technician), (4) Inventory Usage (via getInventoryUsageReport showing top consumed parts over a period). Include date range filter controls that apply to all reports. Display data in tables with simple bar or line charts using a charting library (e.g., recharts)."
+        },
+        {
+          "path": "frontend/src/components/JobsSummaryReport.tsx",
+          "operation": "create",
+          "description": "Create JobsSummaryReport component displaying total jobs by status and technician over a selectable date range. Fetch data using getJobStatusSummary and getJobsByDateRange. Show table and bar chart."
+        },
+        {
+          "path": "frontend/src/components/RevenueReportChart.tsx",
+          "operation": "create",
+          "description": "Create RevenueReportChart component displaying total invoiced and collected amounts by month using getRevenueReport. Show table and line chart."
+        },
+        {
+          "path": "frontend/src/components/TechnicianPerformanceReport.tsx",
+          "operation": "create",
+          "description": "Create TechnicianPerformanceReport component displaying completed jobs and assigned jobs per technician using getTechnicianPerformance. Show table and bar chart."
+        },
+        {
+          "path": "frontend/src/components/InventoryUsageReport.tsx",
+          "operation": "create",
+          "description": "Create InventoryUsageReport component displaying top consumed parts over a period using getInventoryUsageReport. Show table and bar chart."
+        },
+        {
+          "path": "frontend/src/hooks/useReports.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for report operations: useGetJobStatusSummary, useGetRevenueReport, useGetTechnicianPerformance, useGetInventoryUsageReport."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Design professional field-service theme with navy/steel-gray sidebar, amber accents, and consistent card-based layouts",
+      "acceptanceCriteria": [
+        "Left sidebar navigation is present on all pages with links to all 8 modules",
+        "Navy/gray sidebar and amber accent colors are applied consistently",
+        "Card-based KPI widgets and compact tables are used throughout",
+        "Active navigation item is visually highlighted"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update global styles to define the field-service theme with deep navy (#1e3a5f) and steel-gray (#4a5568) color variables, amber/orange accent (#f59e0b), and card shadow utilities. Define CSS variables for consistent use throughout the app."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme with custom colors: navy (deep navy #1e3a5f), steelGray (#4a5568), and amber accent (#f59e0b). Configure card shadow utilities and compact table styles."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "create",
+          "description": "Create Layout component with a left sidebar navigation using the navy/steel-gray color scheme. Sidebar includes logo at top (wired to generated logo image in frontend/public/assets/generated/skpm-logo.dim_200x60.png) and navigation links to all 8 modules: Dashboard, Jobs, Customers, Invoices, Schedule, Inventory, Technicians, Reports. Highlight active navigation item with amber accent. Main content area uses card-based layouts."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap all routes with the Layout component to apply consistent sidebar navigation and theme across all pages. Ensure Layout is used as a wrapper for authenticated routes."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Generate and render custom SKPM Technical Services logo in sidebar navigation",
+      "acceptanceCriteria": [
+        "Logo image is displayed at the top of the sidebar",
+        "Logo loads from the static assets path"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "modify",
+          "description": "Wire the generated logo image from frontend/public/assets/generated/skpm-logo.dim_200x60.png into the sidebar navigation at the top. Use an <img> tag referencing /assets/generated/skpm-logo.dim_200x60.png as the src attribute."
+        }
+      ]
+    }
+  ]
+}
